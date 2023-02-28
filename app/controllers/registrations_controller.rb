@@ -5,6 +5,11 @@ class RegistrationsController < ApplicationController
 
     def create 
         @user = User.new(user_params)
+        existing_user = User.find_by(email: @user.email)
+        if existing_user.present?
+          redirect_to sign_up_path, alert: "An account with that email already exists."
+          return
+        end
         if @user.save
             session[:user_id] = @user.id
             redirect_to root_path, notice: "Successfully created account!"
@@ -12,6 +17,7 @@ class RegistrationsController < ApplicationController
             render :new, status: :unprocessable_entity
         end
     end
+    
     
     private
 

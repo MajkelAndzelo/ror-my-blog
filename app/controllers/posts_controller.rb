@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
+  
 
   # GET /posts or /posts.json
   def index
@@ -8,7 +9,15 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
+    # Check if user has already viewed the post
+    if cookies["post_#{params[:id]}"] != 'true'
+      # If not, increment views by 1 and set cookie to indicate the post has been viewed
+      @post.increment!(:views)
+      cookies["post_#{params[:id]}"] = 'true'
+    end
   end
+  
+  
 
   # GET /posts/new
   def new
@@ -36,6 +45,7 @@ class PostsController < ApplicationController
       redirect_to posts_path, alert: "You need to log in or sign up before continuing." # redirect to login page if user is not logged in
     end
   end
+  
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
@@ -68,6 +78,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :views, :user_id)
+      params.require(:post).permit(:title, :body , :views, :user_id)
     end
 end
