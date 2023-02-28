@@ -1,0 +1,14 @@
+<% if Current.user %>
+  <h1>New post</h1>
+  <%= render "form", post: @post %>
+<% else %>
+  <h1> Log in or sign up to post something! </h1>
+<% end %>
+
+
+
+<br>
+
+<div>
+  <%= link_to "Back to posts", posts_path %>
+</div>
