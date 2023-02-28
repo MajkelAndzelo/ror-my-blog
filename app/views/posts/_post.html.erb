@@ -1,6 +1,6 @@
 <div id="<%= dom_id post %>">
-  <p>
-    <strong>Title:</strong>
+ <p>
+    <strong style="font-size: 19px;">Title:</strong>
     <%= post.title %>
   </p>
 
@@ -8,7 +8,17 @@
     <strong>Body:</strong>
     <%= post.body %>
   </p>
-
+  
+  <p>
+    <strong>Photo:</strong>
+  </p>
+  <% if post.photo.attached? %>
+    <%= image_tag post.photo.variant(resize_to_limit: [400, 400]), class: "post-image" %>
+  <% else %>
+    No photo attached
+  <% end %>
+  
+  
   <p>
     <strong>Views:</strong>
     <%= post.views %>
@@ -18,5 +28,4 @@
     <strong>User:</strong>
     <%= post.user_id %>
   </p>
-
 </div>
