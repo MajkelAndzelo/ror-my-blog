@@ -13,8 +13,31 @@
  *= require_tree .
  *= require_self
  */
+ 
  .post-image {
     max-width: 400px;
     max-height: 400px;
   }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
   
+  .pagination a, .pagination span {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .pagination .disabled span {
+    color: #999;
+    border-color: #999;
+  }
+  
+  .pagination .current {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+  }
