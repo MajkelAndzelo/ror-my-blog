@@ -1,31 +1,24 @@
-<div id="<%= dom_id post %>">
- <p>
-    <strong style="font-size: 19px;">Title:</strong>
-    <%= post.title %>
-  </p>
-
-  <p>
-    <strong>Body:</strong>
-    <%= post.body %>
-  </p>
-  
-  <p>
-    <strong>Photo:</strong>
-  </p>
-  <% if post.photo.attached? %>
-    <%= image_tag post.photo.variant(resize_to_limit: [400, 400]), class: "post-image" %>
-  <% else %>
-    No photo attached
-  <% end %>
-  
-  
-  <p>
-    <strong>Views:</strong>
-    <%= post.views %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= post.user_id %>
-  </p>
+<div id="<%= dom_id(post) %>">
+  <div class="row mb-3">
+    <div class="col-md-8">
+      <h1><%= post.title %></h1>
+      <p class="text-muted">by <%= post.user_id %></p>
+      <% if post.photo.attached? %>
+        <%= image_tag post.photo.variant(resize_to_limit: [800, nil]), class: "img-fluid rounded" %>
+      <% end %>
+      <p class="mt-3"><%= post.body %></p>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Post Info</h5>
+          <ul class="list-unstyled">
+            <li><strong>Views:</strong> <%= post.views %></li>
+            <li><strong>Created at:</strong> <%= post.created_at.strftime("%B %d, %Y") %></li>
+            <li><strong>Updated at:</strong> <%= post.updated_at.strftime("%B %d, %Y") %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

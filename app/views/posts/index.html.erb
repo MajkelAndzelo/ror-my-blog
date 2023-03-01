@@ -11,5 +11,6 @@
         </p>
       <% end %>
     </div>
-  <%= will_paginate @posts%>
+  <%= will_paginate @posts, :per_page => WillPaginate.per_page %>
+
 </div>
