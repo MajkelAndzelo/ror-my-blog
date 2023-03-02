@@ -1,7 +1,84 @@
-
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Welcome to MyBlog</h1>
-    <p class="lead">There will be some stuff tomorrow</p>
-  </div>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<style>
+		body {
+			background-image: url(https://images.unsplash.com/photo-1522569627455-5a810fda9664);
+			background-size: cover;
+		}
+		.container {
+			width: 50%;
+			margin: auto;
+			margin-top: 50px;
+			background-color: #fff;
+			padding: 20px;
+			box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.2);
+		}
+		h1 {
+			text-align: center;
+		}
+		input[type="number"] {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
+		}
+		button {
+			background-color: #4285f4;
+			color: #fff;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: #0c7cd5;
+		}
+		p {
+			font-size: 24px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Calculator</h1>
+		<input type="number" id="operand1" placeholder="Enter the first number">
+		<input type="number" id="operand2" placeholder="Enter the second number">
+		<button onclick="add()">Add</button>
+		<button onclick="subtract()">Subtract</button>
+		<button onclick="multiply()">Multiply</button>
+		<button onclick="divide()">Divide</button>
+		<p id="result"></p>
+	</div>
+	
+	<script>
+		function add() {
+			var operand1 = parseInt(document.getElementById("operand1").value);
+			var operand2 = parseInt(document.getElementById("operand2").value);
+			document.getElementById("result").innerHTML = operand1 + operand2;
+		}
+		
+		function subtract() {
+			var operand1 = parseInt(document.getElementById("operand1").value);
+			var operand2 = parseInt(document.getElementById("operand2").value);
+			document.getElementById("result").innerHTML = operand1 - operand2;
+		}
+		
+		function multiply() {
+			var operand1 = parseInt(document.getElementById("operand1").value);
+			var operand2 = parseInt(document.getElementById("operand2").value);
+			document.getElementById("result").innerHTML = operand1 * operand2;
+		}
+		
+		function divide() {
+			var operand1 = parseInt(document.getElementById("operand1").value);
+			var operand2 = parseInt(document.getElementById("operand2").value);
+			document.getElementById("result").innerHTML = operand1 / operand2;
+		}
+	</script>
+</body>
+</html>

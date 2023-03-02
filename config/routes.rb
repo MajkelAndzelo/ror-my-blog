@@ -17,7 +17,10 @@ Rails.application.routes.draw do
   get "password/reset/edit", to: "password_resets#edit"
   patch "password/reset/edit", to: "password_resets#update"
 
-
+  post "/calculator/add", to: "calculator#add"
+  post "/calculator/subtract", to: "calculator#subtract"
+  post "/calculator/multiply", to: "calculator#multiply"
+  post "/calculator/divide", to: "calculator#divide"
 
   root to: "main#index"
 end

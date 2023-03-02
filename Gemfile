@@ -30,7 +30,7 @@ gem "jbuilder"
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
-gem 'PyCall'
+gem 'pycall'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
