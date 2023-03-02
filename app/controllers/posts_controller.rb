@@ -33,7 +33,11 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    if Current.user
+      @post = Post.new(user_id: Current.user.id)
+    else
+      redirect_to root_path, alert: "Please log in to continue"
+    end
   end
 
   # GET /posts/1/edit
@@ -55,6 +59,7 @@ class PostsController < ApplicationController
   def create
     if Current.user # check if user is logged in
       @post = Current.user.posts.build(post_params) # build the post with the current user
+      @post.user_nickname = Current.user.nickname # set the post's user_nickname to the current user's nickname
       respond_to do |format|
         if @post.save
           format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
@@ -68,6 +73,7 @@ class PostsController < ApplicationController
       redirect_to posts_path, alert: "You need to log in or sign up before continuing." # redirect to login page if user is not logged in
     end
   end
+  
   
 
   # PATCH/PUT /posts/1 or /posts/1.json
@@ -105,6 +111,8 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body , :photo, :views, :user_id)
+      permitted_params = params.require(:post).permit(:title, :body, :photo, :views)
+      permitted_params[:user_id] = Current.user.id # set the user_id to the current user's id
+      permitted_params
     end
-end
+  end
