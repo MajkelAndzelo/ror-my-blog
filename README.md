@@ -1,24 +1,9 @@
-# README
+# MyBlog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This project is a Ruby on Rails web application that allows users to create and share blog posts. 
+It features
+- user authentication, 
+- post creation, 
+- editing and deletion, 
+- image uploading. 
+The application uses implementation of best coding practices and security measures.
