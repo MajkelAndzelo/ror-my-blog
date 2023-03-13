@@ -5,5 +5,5 @@ It features
 - user authentication, 
 - post creation, 
 - editing and deletion, 
-- image uploading. 
+- image uploading.
 The application uses implementation of best coding practices and security measures.
