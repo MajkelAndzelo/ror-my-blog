@@ -7,4 +7,4 @@ It features:
 - editing and deletion, 
 - image uploading.
 
-The application uses implementation of best coding practices and security measures.
+MyBlog uses implementation of best coding practices and security measures.
